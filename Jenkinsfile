@@ -45,7 +45,7 @@ pipeline {
             		sh "docker rm -v ${appName} || exit 0"  // Remover o container e os volumes associados
 
                     // Executar o novo container
-                    sh "docker run -d --name ${appName} -p 8080:4000 ${imageTag}"
+                    sh "docker run -d --name ${appName} -p 4000:4000 ${imageTag}"
                 }
             }
         }
