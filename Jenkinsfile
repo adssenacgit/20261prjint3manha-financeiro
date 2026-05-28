@@ -22,7 +22,6 @@ pipeline {
                 }
             }
         }
-
         stage('Construir Imagem Docker') {
             steps {
                 script {
@@ -31,10 +30,6 @@ pipeline {
 
                     // Construir a imagem Docker
                     sh "docker build -t ${imageTag} ."
-
-                    //dir('subpasta') {
-                    //  sh "docker build -t ${imageTag} ."
-                    //}
                 }
             }
         }
@@ -50,7 +45,7 @@ pipeline {
             		sh "docker rm -v ${appName} || exit 0"  // Remover o container e os volumes associados
 
                     // Executar o novo container
-                    sh "docker-compose up -d --build"
+                    sh "docker run -d --name ${appName} -p 8080:4000 ${imageTag}"
                 }
             }
         }
