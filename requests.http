@@ -1,0 +1,64 @@
+### Criar empresa
+POST http://localhost:8080/api/empresas
+Content-Type: application/json
+
+{
+  "nome": "Empresa Exemplo",
+  "cnpj": "00.000.000/0001-00",
+  "status": true
+}
+
+### Listar empresas
+GET http://localhost:8080/api/empresas
+
+### Criar usuário
+POST http://localhost:8080/api/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Usuário Exemplo",
+  "email": "usuario@exemplo.com",
+  "senha": "123456",
+  "status": true,
+  "foto": null,
+  "empresaId": 1
+}
+
+### Criar categoria
+POST http://localhost:8080/api/categorias
+Content-Type: application/json
+
+{
+  "nome": "Salário",
+  "tipo": "entrada",
+  "usuarioId": 1
+}
+
+### Criar conta
+POST http://localhost:8080/api/contas
+Content-Type: application/json
+
+{
+  "descricao": "Aluguel de maio",
+  "valor": 1500.00,
+  "valorPago": null,
+  "tipo": "pagar",
+  "status": "pendente",
+  "dataVencimento": "2026-05-10",
+  "dataPagamento": null,
+  "categoriaId": 1,
+  "usuarioId": 1
+}
+
+### Criar transação
+POST http://localhost:8080/api/transacoes
+Content-Type: application/json
+
+{
+  "descricao": "Recebimento de salário",
+  "valor": 5000.00,
+  "data": "2026-05-05",
+  "categoriaId": 1,
+  "usuarioId": 1,
+  "contaId": null
+}
