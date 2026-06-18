@@ -16,12 +16,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/transacoes")
 @Tag(name = "Transações", description = "CRUD de transações financeiras")
+@CrossOrigin("*")    
 public class TransacaoController {
 
     private final TransacaoService transacaoService;
