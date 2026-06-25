@@ -36,6 +36,7 @@ public class CategoriaService {
     public CategoriaResponse criar(CategoriaRequest request) {
         Categoria categoria = new Categoria();
         aplicarDados(categoria, request);
+        categoria.setStatus(1);
         return toResponse(categoriaRepository.save(categoria));
     }
 
